@@ -1,7 +1,7 @@
 <template>
   <div class="flex font-poppins">
     <!-- Sidebar -->
-    <div class="w-1/4 bg-[#101010] text-white p-4">
+    <div class="w-1/4 bg-[#101010] text-white p-5">
       <div class="items-center mb-6">
         <div class="w-[70px] h-[70px] rounded-2xl">
           <img
@@ -68,92 +68,37 @@
     </div>
 
     <!-- Main Content -->
-    <div class="flex gap-20 justify-between bg-white rounded-lg shadow-md">
-      <div class="p-8">
-        <h2 class="text-4xl font-bold mb-4 text-[#262A41]">Expenses</h2>
+    <div class="flex gap-5 justify-between bg-white rounded-lg shadow-md">
+      <div class="p-5 w-full">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-4xl font-bold mb-2 text-[#262A41]">Expenses</h2>
+          </div>
+          <div>
+            <a-avatar-group shape="square">
+              <a-avatar style="background-color: #fde3cf">A</a-avatar>
+              <a-avatar style="background-color: #f56a00">K</a-avatar>
+              <a-tooltip title="Ant User" placement="top">
+                <a-avatar style="background-color: #87d068">
+                  <template #icon><UserOutlined /></template>
+                </a-avatar>
+              </a-tooltip>
+              <a-avatar> + </a-avatar>
+            </a-avatar-group>
+          </div>
+        </div>
         <div class="flex justify-between mb-6">
           <div>
             <div class="text-gray-600">01 - 25 March, 2020</div>
-            <div class="text-sm text-gray-400">Where your money goes?</div>
-          </div>
-          <div class="flex items-center">
-            <span class="material-icons text-gray-400 mr-2">group</span>
-            <span class="text-gray-600">Share</span>
           </div>
         </div>
 
         <!-- Expenses List -->
-        <div class="mb-4">
-          <div class="flex items-center justify-between mb-2">
-            <div class="flex items-center">
-              <span class="material-icons text-green-500 mr-2"
-                >local_grocery_store</span
-              >
-              <div>
-                <div class="text-gray-700">Grocery</div>
-                <div class="text-sm text-gray-400">
-                  5:12 pm - Belanja di pasar
-                </div>
-              </div>
-            </div>
-            <div class="text-red-500">-326,800</div>
-          </div>
-          <div class="flex items-center justify-between mb-2">
-            <div class="flex items-center">
-              <span class="material-icons text-blue-500 mr-2"
-                >directions_bus</span
-              >
-              <div>
-                <div class="text-gray-700">Transportation</div>
-                <div class="text-sm text-gray-400">5:12 pm - Naik bus umum</div>
-              </div>
-            </div>
-            <div class="text-red-500">-15,000</div>
-          </div>
-          <div class="flex items-center justify-between mb-2">
-            <div class="flex items-center">
-              <span class="material-icons text-orange-500 mr-2">home</span>
-              <div>
-                <div class="text-gray-700">Housing</div>
-                <div class="text-sm text-gray-400">5:12 pm - Bayar listrik</div>
-              </div>
-            </div>
-            <div class="text-red-500">-185,750</div>
-          </div>
-        </div>
-
-        <div class="mb-4">
-          <h3 class="font-semibold text-gray-700 mb-2">
-            Monday, 23 March 2020
-          </h3>
-          <div class="flex items-center justify-between mb-2">
-            <div class="flex items-center">
-              <span class="material-icons text-red-500 mr-2">restaurant</span>
-              <div>
-                <div class="text-gray-700">Food and Drink</div>
-                <div class="text-sm text-gray-400">5:12 pm - Makan Steak</div>
-              </div>
-            </div>
-            <div class="text-red-500">-156,000</div>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center">
-              <span class="material-icons text-green-500 mr-2">local_play</span>
-              <div>
-                <div class="text-gray-700">Entertainment</div>
-                <div class="text-sm text-gray-400">
-                  5:12 pm - Nonton Bioskop
-                </div>
-              </div>
-            </div>
-            <div class="text-red-500">-35,200</div>
-          </div>
-        </div>
       </div>
 
       <!-- Where Your Money Goes -->
-      <div class="bg-[#F9FAFC] p-8 rounded-lg">
-        <h3 class="text-xl font-bold mb-4">Where your money go?</h3>
+      <div class="bg-[#F9FAFC] p-5 rounded-r-lg w-2/4">
+        <h3 class="text-xl font-bold pt-3">Where your money go?</h3>
         <div class="mt-8 space-y-12">
           <div>
             <div class="flex justify-between items-center">
@@ -222,7 +167,7 @@
         </div>
 
         <!-- User Saves Section -->
-        <section class="bg-[#EDF0F5] rounded-2xl p-8 mt-16 relative">
+        <section class="bg-[#EDF0F5] rounded-2xl p-5 mt-28 relative">
           <div class="absolute -top-11">
             <div class="flex items-center justify-between">
               <div>
@@ -233,7 +178,7 @@
               </div>
             </div>
           </div>
-          <h2 class="text-xl font-semibold py-2 mt-20">Save more money</h2>
+          <h2 class="text-xl font-semibold py-2 mt-[40px]">Save more money</h2>
           <p class="text-sm font-medium text-[#404852]">
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim.
@@ -250,8 +195,17 @@
 </template>
 
 <script>
+import { Avatar, Tooltip } from "ant-design-vue";
+import { UserOutlined, AntDesignOutlined } from "@ant-design/icons-vue";
+
 export default {
   name: "Dashboard",
+  components: {
+    "a-avatar": Avatar,
+    "a-tooltip": Tooltip,
+    UserOutlined,
+    AntDesignOutlined,
+  },
   data() {
     return {
       profileImage: "/de65de332ec15bf450eda8bbd5c75b19.png",
