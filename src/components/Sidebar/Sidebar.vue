@@ -95,17 +95,17 @@
               <h2 class="text-lg font-semibold text-gray-800">Today</h2>
               <p>...</p>
             </div>
-            <hr class="my-4" />
+            <hr class="my-5" />
             <div
               class="flex items-center my-4"
               v-for="item in todayExpenses"
               :key="item.id"
             >
               <div
-                :class="`w-10 h-10 rounded-full flex items-center justify-center text-white mr-4 ${iconColor(
-                  item.category
-                )}`"
-              ></div>
+                class="w-10 h-10 rounded-full flex items-center justify-center bg-[#32A7E2] text-white mr-4"
+              >
+                <component :is="item.icon" class="text-xl"></component>
+              </div>
               <div class="flex-1">
                 <div class="flex justify-between text-base text-gray-800">
                   <span>{{ item.category }}</span>
@@ -117,19 +117,19 @@
                 </div>
               </div>
             </div>
-            <h2 class="mt-14 text-lg font-semibold text-gray-800">
+            <h2 class="mt-16 text-lg font-semibold text-gray-800">
               Monday, 23 March 2020
             </h2>
             <div
-              class="flex items-center my-4 mt-5"
+              class="flex items-center mt-5"
               v-for="item in previousExpenses"
               :key="item.id"
             >
               <div
-                :class="`w-10 h-10 rounded-full flex items-center justify-center text-white mr-4 ${iconColor(
-                  item.category
-                )}`"
-              ></div>
+                class="w-10 h-10 rounded-full flex items-center justify-center text-white bg-[#DC3434] mr-4"
+              >
+                <component :is="item.icon" class="text-xl"></component>
+              </div>
               <div class="flex-1">
                 <div class="flex justify-between text-base text-gray-800">
                   <span>{{ item.category }}</span>
@@ -247,7 +247,15 @@
 
 <script>
 import { Avatar, Tooltip } from "ant-design-vue";
-import { UserOutlined, AntDesignOutlined } from "@ant-design/icons-vue";
+import {
+  UserOutlined,
+  AntDesignOutlined,
+  ShoppingOutlined,
+  CarOutlined,
+  HomeOutlined,
+  CoffeeOutlined,
+  SmileOutlined,
+} from "@ant-design/icons-vue";
 
 export default {
   name: "Dashboard",
@@ -256,6 +264,11 @@ export default {
     "a-tooltip": Tooltip,
     UserOutlined,
     AntDesignOutlined,
+    ShoppingOutlined,
+    CarOutlined,
+    HomeOutlined,
+    CoffeeOutlined,
+    SmileOutlined,
   },
   data() {
     return {
@@ -269,6 +282,7 @@ export default {
           time: "5:12 pm",
           description: "Belanja di pasar",
           amount: "-326.800",
+          icon: "ShoppingOutlined",
         },
         {
           id: 2,
@@ -276,6 +290,7 @@ export default {
           time: "5:12 pm",
           description: "Naik bus umum",
           amount: "-15.000",
+          icon: "CarOutlined",
         },
         {
           id: 3,
@@ -283,6 +298,7 @@ export default {
           time: "5:12 pm",
           description: "Bayar Listrik",
           amount: "-185.750",
+          icon: "HomeOutlined",
         },
       ],
       previousExpenses: [
@@ -292,6 +308,7 @@ export default {
           time: "5:12 pm",
           description: "Makan Steak",
           amount: "-156.000",
+          icon: "CoffeeOutlined",
         },
         {
           id: 5,
@@ -299,27 +316,10 @@ export default {
           time: "5:12 pm",
           description: "Nonton Bioskop",
           amount: "-35.200",
+          icon: "SmileOutlined",
         },
       ],
     };
-  },
-  methods: {
-    iconColor(category) {
-      switch (category) {
-        case "Grocery":
-          return "bg-blue-500";
-        case "Transportation":
-          return "bg-purple-500";
-        case "Housing":
-          return "bg-red-500";
-        case "Food and Drink":
-          return "bg-orange-500";
-        case "Entertainment":
-          return "bg-green-500";
-        default:
-          return "bg-gray-500";
-      }
-    },
   },
 };
 </script>
