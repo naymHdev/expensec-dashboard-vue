@@ -87,6 +87,59 @@
             </a-avatar-group>
           </div>
         </div>
+
+        <!-- State and more content -->
+        <section>
+          <div class="p-6">
+            <h2 class="mt-4 text-lg font-semibold text-gray-800">Today</h2>
+            <div
+              class="flex items-center my-4"
+              v-for="item in todayExpenses"
+              :key="item.id"
+            >
+              <div
+                :class="`w-10 h-10 rounded-full flex items-center justify-center text-white mr-4 ${iconColor(
+                  item.category
+                )}`"
+              ></div>
+              <div class="flex-1">
+                <div class="flex justify-between text-base text-gray-800">
+                  <span>{{ item.category }}</span>
+                  <span>{{ item.amount }}</span>
+                </div>
+                <div class="flex justify-between text-sm text-gray-500">
+                  <span>{{ item.time }}</span>
+                  <span>{{ item.description }}</span>
+                </div>
+              </div>
+            </div>
+            <h2 class="mt-4 text-lg font-semibold text-gray-800">
+              Monday, 23 March 2020
+            </h2>
+            <div
+              class="flex items-center my-4"
+              v-for="item in previousExpenses"
+              :key="item.id"
+            >
+              <div
+                :class="`w-10 h-10 rounded-full flex items-center justify-center text-white mr-4 ${iconColor(
+                  item.category
+                )}`"
+              ></div>
+              <div class="flex-1">
+                <div class="flex justify-between text-base text-gray-800">
+                  <span>{{ item.category }}</span>
+                  <span>{{ item.amount }}</span>
+                </div>
+                <div class="flex justify-between text-sm text-gray-500">
+                  <span>{{ item.time }}</span>
+                  <span>{{ item.description }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <div class="flex justify-between mb-6">
           <div>
             <div class="text-gray-600">01 - 25 March, 2020</div>
@@ -96,7 +149,7 @@
         <!-- Expenses List -->
       </div>
 
-      <!-- Where Your Money Goes -->
+      <!-- today section -->
       <div class="bg-[#F9FAFC] p-5 rounded-r-lg w-2/4">
         <h3 class="text-xl font-bold pt-3">Where your money go?</h3>
         <div class="mt-8 space-y-12">
@@ -211,7 +264,64 @@ export default {
       profileImage: "/de65de332ec15bf450eda8bbd5c75b19.png",
       icon1: "/serv.png",
       icon2: "/shorteg-box.png",
+      todayExpenses: [
+        {
+          id: 1,
+          category: "Grocery",
+          time: "5:12 pm",
+          description: "Belanja di pasar",
+          amount: "-326.800",
+        },
+        {
+          id: 2,
+          category: "Transportation",
+          time: "5:12 pm",
+          description: "Naik bus umum",
+          amount: "-15.000",
+        },
+        {
+          id: 3,
+          category: "Housing",
+          time: "5:12 pm",
+          description: "Bayar Listrik",
+          amount: "-185.750",
+        },
+      ],
+      previousExpenses: [
+        {
+          id: 4,
+          category: "Food and Drink",
+          time: "5:12 pm",
+          description: "Makan Steak",
+          amount: "-156.000",
+        },
+        {
+          id: 5,
+          category: "Entertainment",
+          time: "5:12 pm",
+          description: "Nonton Bioskop",
+          amount: "-35.200",
+        },
+      ],
     };
+  },
+  methods: {
+    iconColor(category) {
+      switch (category) {
+        case "Grocery":
+          return "bg-blue-500";
+        case "Transportation":
+          return "bg-purple-500";
+        case "Housing":
+          return "bg-red-500";
+        case "Food and Drink":
+          return "bg-orange-500";
+        case "Entertainment":
+          return "bg-green-500";
+        default:
+          return "bg-gray-500";
+      }
+    },
   },
 };
 </script>
