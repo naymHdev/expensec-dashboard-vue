@@ -3,12 +3,17 @@
     <!-- Sidebar -->
     <div class="w-1/4 bg-[#101010] text-white p-5">
       <div class="items-center mb-6">
-        <div class="w-[70px] h-[70px] rounded-2xl">
+        <div class="w-[70px] h-[70px] rounded-2xl relative">
           <img
             :src="profileImage"
             alt="Profile"
             class="w-full h-[70px] object-center rounded-2xl mr-3"
           />
+          <div
+            class="absolute bg-[#DC3434] text-white -top-3 -right-3 p-2 w-7 h-7 rounded-full flex items-center justify-center"
+          >
+            4
+          </div>
         </div>
         <div class="mt-3">
           <div class="font-bold">Samantha</div>
