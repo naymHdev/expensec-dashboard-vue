@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex font-poppins">
     <!-- Sidebar -->
     <div class="w-1/4 bg-[#101010] text-white p-4">
       <div class="items-center mb-6">
@@ -68,9 +68,9 @@
     </div>
 
     <!-- Main Content -->
-    <div class="flex-1 p-6">
-      <div class="bg-white rounded-lg p-4 shadow-md">
-        <h2 class="text-xl font-bold mb-4">Expenses</h2>
+    <div class="flex gap-20 justify-between bg-white rounded-lg shadow-md">
+      <div class="p-8">
+        <h2 class="text-4xl font-bold mb-4 text-[#262A41]">Expenses</h2>
         <div class="flex justify-between mb-6">
           <div>
             <div class="text-gray-600">01 - 25 March, 2020</div>
@@ -152,61 +152,98 @@
       </div>
 
       <!-- Where Your Money Goes -->
-      <div class="bg-white rounded-lg p-4 shadow-md mt-6">
+      <div class="bg-[#F9FAFC] p-8 rounded-lg">
         <h3 class="text-xl font-bold mb-4">Where your money go?</h3>
-        <div>
-          <div class="flex justify-between items-center mb-2">
-            <div>Food and Drinks</div>
-            <div>872,400</div>
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-            <div
-              class="bg-green-500 h-2.5 rounded-full"
-              style="width: 70%"
-            ></div>
-          </div>
-
-          <div class="flex justify-between items-center mb-2">
-            <div>Shopping</div>
-            <div>1,378,200</div>
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-            <div
-              class="bg-yellow-500 h-2.5 rounded-full"
-              style="width: 80%"
-            ></div>
+        <div class="mt-8 space-y-12">
+          <div>
+            <div class="flex justify-between items-center">
+              <div>Food and Drinks</div>
+              <div>872,400</div>
+            </div>
+            <div class="w-full bg-gray-200 mt-3 rounded-full h-2.5">
+              <div
+                class="bg-green-500 h-2.5 rounded-full"
+                style="width: 70%"
+              ></div>
+            </div>
           </div>
 
-          <div class="flex justify-between items-center mb-2">
-            <div>Housing</div>
-            <div>928,500</div>
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-            <div
-              class="bg-orange-500 h-2.5 rounded-full"
-              style="width: 60%"
-            ></div>
-          </div>
-
-          <div class="flex justify-between items-center mb-2">
-            <div>Transportation</div>
-            <div>420,700</div>
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-            <div
-              class="bg-blue-500 h-2.5 rounded-full"
-              style="width: 40%"
-            ></div>
+          <div>
+            <div class="flex justify-between items-center">
+              <div>Shopping</div>
+              <div>1,378,200</div>
+            </div>
+            <div class="w-full bg-gray-200 mt-3 rounded-full h-2.5">
+              <div
+                class="bg-green-500 h-2.5 rounded-full"
+                style="width: 80%"
+              ></div>
+            </div>
           </div>
 
-          <div class="flex justify-between items-center mb-2">
-            <div>Vehicle</div>
-            <div>50,000</div>
+          <div>
+            <div class="flex justify-between items-center">
+              <div>Housing</div>
+              <div>928,500</div>
+            </div>
+            <div class="w-full bg-gray-200 mt-3 rounded-full h-2.5">
+              <div
+                class="bg-green-500 h-2.5 rounded-full"
+                style="width: 60%"
+              ></div>
+            </div>
           </div>
-          <div class="w-full bg-gray-200 rounded-full h-2.5">
-            <div class="bg-red-500 h-2.5 rounded-full" style="width: 10%"></div>
+
+          <div>
+            <div class="flex justify-between items-center">
+              <div>Transportation</div>
+              <div>420,700</div>
+            </div>
+            <div class="w-full bg-gray-200 mt-3 rounded-full h-2.5">
+              <div
+                class="bg-green-500 h-2.5 rounded-full"
+                style="width: 40%"
+              ></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center">
+              <div>Vehicle</div>
+              <div>50,000</div>
+            </div>
+            <div class="w-full bg-gray-200 mt-3 rounded-full h-2.5">
+              <div
+                class="bg-green-500 h-2.5 rounded-full"
+                style="width: 10%"
+              ></div>
+            </div>
           </div>
         </div>
+
+        <!-- User Saves Section -->
+        <section class="bg-[#EDF0F5] rounded-2xl p-8 mt-16 relative">
+          <div class="absolute -top-11">
+            <div class="flex items-center justify-between">
+              <div>
+                <img :src="icon2" alt="Profile" />
+              </div>
+              <div>
+                <img :src="icon1" alt="Profile" />
+              </div>
+            </div>
+          </div>
+          <h2 class="text-xl font-semibold py-2 mt-20">Save more money</h2>
+          <p class="text-sm font-medium text-[#404852]">
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim.
+          </p>
+          <button
+            class="w-full py-3 bg-black rounded-2xl text-white font-medium mt-5"
+          >
+            VIEW TIPS
+          </button>
+        </section>
       </div>
     </div>
   </div>
@@ -217,7 +254,9 @@ export default {
   name: "Dashboard",
   data() {
     return {
-      profileImage: "/de65de332ec15bf450eda8bbd5c75b19.png", // Path relative to the public directory
+      profileImage: "/de65de332ec15bf450eda8bbd5c75b19.png",
+      icon1: "/serv.png",
+      icon2: "/shorteg-box.png",
     };
   },
 };
