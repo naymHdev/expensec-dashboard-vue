@@ -93,6 +93,7 @@
           </div>
         </div>
 
+        <!-- TODO: Added Chart -->
         <!-- State and more content -->
         <section>
           <div class="p-6">
