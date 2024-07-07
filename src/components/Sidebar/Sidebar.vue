@@ -1,0 +1,9 @@
+<script setup>
+defineProps({
+  msg: String,
+});
+</script>
+
+<template>
+  <p>Sidebar</p>
+</template>
