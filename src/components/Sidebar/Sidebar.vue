@@ -91,7 +91,11 @@
         <!-- State and more content -->
         <section>
           <div class="p-6">
-            <h2 class="mt-4 text-lg font-semibold text-gray-800">Today</h2>
+            <div class="flex items-center justify-between">
+              <h2 class="text-lg font-semibold text-gray-800">Today</h2>
+              <p>...</p>
+            </div>
+            <hr class="my-4" />
             <div
               class="flex items-center my-4"
               v-for="item in todayExpenses"
@@ -107,17 +111,17 @@
                   <span>{{ item.category }}</span>
                   <span>{{ item.amount }}</span>
                 </div>
-                <div class="flex justify-between text-sm text-gray-500">
-                  <span>{{ item.time }}</span>
+                <div class="flex items-center gap-2 text-sm text-gray-500">
+                  <span>{{ item.time }}</span> .
                   <span>{{ item.description }}</span>
                 </div>
               </div>
             </div>
-            <h2 class="mt-4 text-lg font-semibold text-gray-800">
+            <h2 class="mt-14 text-lg font-semibold text-gray-800">
               Monday, 23 March 2020
             </h2>
             <div
-              class="flex items-center my-4"
+              class="flex items-center my-4 mt-5"
               v-for="item in previousExpenses"
               :key="item.id"
             >
@@ -131,20 +135,14 @@
                   <span>{{ item.category }}</span>
                   <span>{{ item.amount }}</span>
                 </div>
-                <div class="flex justify-between text-sm text-gray-500">
-                  <span>{{ item.time }}</span>
+                <div class="flex items-center gap-2 text-sm text-gray-500">
+                  <span>{{ item.time }}</span> .
                   <span>{{ item.description }}</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
-
-        <div class="flex justify-between mb-6">
-          <div>
-            <div class="text-gray-600">01 - 25 March, 2020</div>
-          </div>
-        </div>
 
         <!-- Expenses List -->
       </div>
